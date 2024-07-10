@@ -892,7 +892,7 @@ local function getObjGen()
             Gui.Icon_2.BackgroundTransparency = 1.000
             Gui.Icon_2.Size = UDim2.new(1, 0, 1, 0)
             Gui.Icon_2.ZIndex = 111
-            Gui.Icon_2.Image = image
+            Gui.Icon_2.Image = "rbxassetid://7072706663"
             Gui.Icon_2.ImageColor3 = Color3.fromRGB(100, 100, 100)
             Gui.Icon_2.ScaleType = Enum.ScaleType.Fit
 
@@ -3260,6 +3260,7 @@ function UILibrary.new(gameName, userId, rank, image)
     AspectRatio.AspectRatio = 1.2
 
     Frame.Parent = window.MainUI.Sidebar.ContentHolder.Cheats.Logo
+    window.MainUI.Sidebar.ContentHolder.Cheats.Logo-Image = image
     Frame.ZIndex = 300
 
     local Drag = Draggable.Drag(window.MainUI, Frame)

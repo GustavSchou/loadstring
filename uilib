@@ -3237,13 +3237,12 @@ end
 function UILibrary.new(gameName, userId, rank)
     if RunService:IsStudio() == false and game:GetService("CoreGui"):FindFirstChild("WaveHubUI") then
         game:GetService("CoreGui"):FindFirstChild("WaveHubUI"):Destroy()
-        elseif LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("WaveHubUI")
+        elseif LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("WaveHubUI") then
         LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("WaveHubUI"):Destroy()
     end
     local GUI = Instance.new("ScreenGui")
     GUI.Name = "WaveHubUI"
-    GUI.Parent =
-        RunService:IsStudio() == false and game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui")
+    GUI.Parent = RunService:IsStudio() == false and game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui")
     GUI.ResetOnSpawn = false
     GUI.ZIndexBehavior = Enum.ZIndexBehavior.Global
 

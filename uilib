@@ -285,9 +285,8 @@ local function getObjGen()
                 UICorner_23 = Instance.new("UICorner"),
                 UIAspectRatioConstraint_17 = Instance.new("UIAspectRatioConstraint")
             }
-
             --Properties:
-
+            
             Gui.UIObjects.Name = "UIObjects"
 
             Gui.Cheats.Name = "Cheats"
@@ -3235,9 +3234,14 @@ for i, v in pairs(UILibNames) do
     UILibrary[v].__index = UILibrary[v]
 end
 
-function UILibrary.new(gameName, userId, rank, image)
+function UILibrary.new(gameName, userId, rank)
+    if RunService:IsStudio() == false and game:GetService("CoreGui"):FindFirstChild("WaveHubUI") then
+        game:GetService("CoreGui"):FindFirstChild("WaveHubUI"):Destroy()
+        elseif LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("WaveHubUI")
+        LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("WaveHubUI"):Destroy()
+    end
     local GUI = Instance.new("ScreenGui")
-    GUI.Name = HttpService:GenerateGUID(false)
+    GUI.Name = "WaveHubUI"
     GUI.Parent =
         RunService:IsStudio() == false and game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui")
     GUI.ResetOnSpawn = false
@@ -3245,7 +3249,7 @@ function UILibrary.new(gameName, userId, rank, image)
 
     local window = objectGenerator.new("Window")
     window.Parent = GUI
-
+    
     --// make UI draggable
     -->> LogoHitbox
 
